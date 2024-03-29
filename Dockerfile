@@ -10,4 +10,4 @@ COPY . .
 
 RUN npm run build
 
-CMD npm run start
+CMD node dist/main.js
