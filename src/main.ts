@@ -1,11 +1,15 @@
 import { NestFactory } from "@nestjs/core";
-import { AppModule } from "./app.module";
 import { MicroserviceOptions, Transport } from "@nestjs/microservices";
 import { ConfigService } from "@nestjs/config";
+import { Logger } from "nestjs-pino";
+
+import { AppModule } from "./app.module";
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const configService = app.get<ConfigService>(ConfigService);
+
+  app.useLogger(app.get(Logger));
 
   app.connectMicroservice<MicroserviceOptions>({
     transport: Transport.KAFKA,
