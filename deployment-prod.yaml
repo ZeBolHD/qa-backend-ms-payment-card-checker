@@ -15,7 +15,7 @@ spec:
     metadata:
       labels:
         app: backend-ms-payment-card-checker
-        version: "1.01"
+        version: "1.02"
     spec:
       containers:
         - name: backend-ms-payment-card-checker
