@@ -23,7 +23,7 @@ export class CheckerService {
   private CARD_SUCCESS_CODE = +this.configService.get<number>("CARD_SUCCESS_CODE", 123);
 
   checkCard(dto: CardCheckerDto): CheckerResponse {
-    this.logger.info("Checking  card");
+    this.logger.info("Checking card");
 
     const status = this.checkCardStatus(dto);
 
@@ -43,6 +43,7 @@ export class CheckerService {
 
   private checkCardStatus(dto: CardCheckerDto): Status {
     if (
+      !dto ||
       !dto.card ||
       !dto.card.cardNumber ||
       !dto.card.securityCode ||
