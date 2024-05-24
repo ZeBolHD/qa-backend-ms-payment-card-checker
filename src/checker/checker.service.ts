@@ -53,7 +53,8 @@ export class CheckerService {
       this.logger.error(
         {
           card: {
-            cardNumber: dto.card.cardNumber,
+            cardNumber: dto?.card?.cardNumber || "No card",
+            cardHolder: dto?.card?.cardHolder || "Unknown",
           },
           total: dto.total,
         },
